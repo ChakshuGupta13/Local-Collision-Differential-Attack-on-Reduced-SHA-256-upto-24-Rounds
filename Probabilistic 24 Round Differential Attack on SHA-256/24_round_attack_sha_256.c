@@ -230,7 +230,7 @@ int main(){
 				uint32_t W_1_25_18 = (X ^ Y)&(0xff);
 
 				uint32_t temp = W[1];
-				uint31_t c_0;
+				uint32_t c_0;
 				for(c_0 = 0; c_0 < 2; c_0++){
 					W[1] = temp;
 					X = (D >> 19) + (W_1_25_18 >> 1) + c_0;
