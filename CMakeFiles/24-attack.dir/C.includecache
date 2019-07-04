@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chakshu/CLionProjects/Local-Collision-Differential-Attack-on-Reduced-SHA-256-upto-24-Rounds/Probabilistic 24 Round Differential Attack on SHA-256/24_round_attack_sha_256.c
+stdint.h
+-
+string.h
+-
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+math.h
+-
+

@@ -177,9 +177,4 @@ int main(){
 	printf("%08x\n", reg[5]);
 	printf("%08x\n", reg[6]);
 	printf("%08x\n", reg[7]);
-
-	uint32_t temp = ROT_R(0x0f4b87c3, 2) + ROT_R(0x67452301, 28);
-	temp += 0x428a2f98;
-	temp += (0xefcdab89^(ROT_R(0x62eb73fa, 2))^(ROT_R(0x40c951d8, 2)));
-	printf("\n%08x\n", temp);
 }
