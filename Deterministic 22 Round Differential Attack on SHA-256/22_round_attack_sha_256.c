@@ -123,7 +123,8 @@ int main(){
 	uint32_t W_dash[22];
 
 	printf("W\t\tdel_W\t\tW_dash\n");
-	for (int i = 0; i < 16; ++i) {
+	int i;
+	for (i = 0; i < 16; ++i) {
 		printf("%08x\t", W[i]);
 		printf("%08x\t", del_W[i]);
 		W_dash[i] = W[i] + del_W[i];
@@ -132,16 +133,17 @@ int main(){
 
 	printf("\n");
 
-	for (int step = 14; step < 16; step++) {
+	int step;
+	for (step = 14; step < 16; step++) {
 		compression_step(step, W);
 	}
 
-	for (int step = 16; step < 22; step++) {
+	for (step = 16; step < 22; step++) {
 		msg_exp_step(step, W);
 		W_dash[step] = W[step];
 	}
 
-	for (int step = 16; step < 22; step++) {
+	for (step = 16; step < 22; step++) {
 		compression_step(step, W);
 	}
 
@@ -164,7 +166,7 @@ int main(){
 	reg[6] = 0x1f83d9ab;
 	reg[7] = 0x5be0cd19;
 
-	for (int step = 0; step < 22; step++) {
+	for (step = 0; step < 22; step++) {
 		compression_step(step, W_dash);
 	}
 

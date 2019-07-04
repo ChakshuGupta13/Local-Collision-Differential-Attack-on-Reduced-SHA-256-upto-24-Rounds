@@ -36,7 +36,8 @@ static inline void init_reg(uint32_t * reg){
 }
 
 void print_msg(int start_index, int last_index, uint32_t * W){
-	for(int index = start_index; index <= last_index; index++){
+    int index;
+	for(index = start_index; index <= last_index; index++){
 		printf("0x%08x, ", W[index]);
 		if((index + 1) % 8 == 0){
 			printf("\n");
@@ -97,7 +98,8 @@ void msg_exp_check(int start_step, int last_step, uint32_t * msg){
 		return;
 	}
 
-	for(int step = start_step; step <= last_step; step++){
+	int step;
+	for(step = start_step; step <= last_step; step++){
 		if(msg_exp(step, msg) == msg[step]){
 			printf("Message Expansion at %d: Correct! :)\n", step);
 		} else {
@@ -112,7 +114,8 @@ void msg_exp_check(int start_step, int last_step, uint32_t * msg){
 
 void collision_check(uint32_t * reg, uint32_t * reg_dash){
 	int reg_same = 1;
-	for(int reg_index = 0; reg_index < 8; reg_index++){
+	int reg_index;
+	for(reg_index = 0; reg_index < 8; reg_index++){
 		if(reg[reg_index] == reg_dash[reg_index]){
 			continue;
 		} else {
@@ -130,7 +133,8 @@ void collision_check(uint32_t * reg, uint32_t * reg_dash){
 }
 
 void msg_compression(int start_step, int last_step, uint32_t * reg, uint32_t * msg){
-	for(int step = start_step; step <= last_step; step++){
+    int step;
+	for(step = start_step; step <= last_step; step++){
 		compression_step(reg, step, msg);
 		
 		// compression_step_info_print(reg);
@@ -215,7 +219,8 @@ int main(){
 
 			uint32_t D = (W[16] - (sigma_1(W[14]) + C[4] + MAJ(a[4], a[3], a[2]) - phi[0] + W[0]));
 
-			for(uint32_t iterator = 0; iterator <= 0x00007fff; iterator++){
+			uint32_t iterator;
+			for(iterator = 0; iterator <= 0x00007fff; iterator++){
 				W[1] = iterator;
 
 				uint32_t X = D + W[1];
@@ -225,7 +230,8 @@ int main(){
 				uint32_t W_1_25_18 = (X ^ Y)&(0xff);
 
 				uint32_t temp = W[1];
-				for(uint32_t c_0 = 0; c_0 < 2; c_0++){
+				uint31_t c_0;
+				for(c_0 = 0; c_0 < 2; c_0++){
 					W[1] = temp;
 					X = (D >> 19) + (W_1_25_18 >> 1) + c_0;
 					Y = (W[1] >> 5) ^ (W_1_25_18 >> 4);
@@ -234,14 +240,16 @@ int main(){
 					uint32_t W_1_29_26 = (X ^ Y)&(0xf);
 
 					uint32_t temp2 = W[1];
-					for(uint32_t c_1 = 0; c_1 < 2; c_1++){
+					uint32_t c_1;
+					for(c_1 = 0; c_1 < 2; c_1++){
 						W[1] = temp2;
 						X = (D >> 23) + (W_1_25_18 >> 5) + c_1;
 						Y = (W[1] >> 9) ^ (W_1_29_26);
 						W[1] = W[1] | ROT_R(((X ^ Y)&(0x3)), 2);
 
 						uint32_t temp3 = W[1];
-						for(uint32_t c_2 = 0; c_2 < 2; c_2++){
+						uint32_t c_2;
+						for(c_2 = 0; c_2 < 2; c_2++){
 							W[1] = temp3;
 							X = (D >> 8) + (W[1] >> 8) + c_2;
 							Y = (W[1] >> 11) ^ W_1_29_26;
@@ -300,8 +308,9 @@ int main(){
 	printf("Clocks per second:\t%lu\n\n", CLOCKS_PER_SEC);
 
 	printf("W[17] & W[18] Found! :)\n\n");
-	
-	for(int index = 4; index < 13; index++){
+
+	int index;
+	for(index = 4; index < 13; index++){
 		W_from_a(reg, W, a, index);
 		compression_step(reg, index, W);
 		
@@ -315,7 +324,8 @@ int main(){
 	msg_exp_check(16, 18, W);
 	printf("\n");
 
-	for(int i = 19; i < 24; i++){
+	int i;
+	for(i = 19; i < 24; i++){
 		W[i] = msg_exp(i, W);
 	}
 
@@ -331,7 +341,7 @@ int main(){
 	uint32_t reg_dash[8];
 	init_reg(reg_dash);
 
-	for(int i = 0; i < 24; i++){
+	for(i = 0; i < 24; i++){
 		W_dash[i] = W[i] + del_W[i];
 	}
 
