@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/24-attack.dir/Probabilistic_24_Round_Differential_Attack_on_SHA-256/24_round_attack_sha_256.c.o  -o 24-attack 

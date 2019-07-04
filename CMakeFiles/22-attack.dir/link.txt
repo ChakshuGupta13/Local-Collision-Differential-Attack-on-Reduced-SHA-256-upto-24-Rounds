@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/22-attack.dir/Deterministic_22_Round_Differential_Attack_on_SHA-256/22_round_attack_sha_256.c.o  -o 22-attack 
