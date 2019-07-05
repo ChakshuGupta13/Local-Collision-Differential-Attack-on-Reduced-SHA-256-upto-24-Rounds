@@ -1,4 +1,4 @@
-# Local-Collision-Differential-Attack-on-Reduced-SHA-256-upto-24-Rounds
+# Local-Collision-Differential-Attack-on-Reduced-SHA-256-upto-24-Rounds [![Build Status](https://travis-ci.com/ChakshuGupta13/Local-Collision-Differential-Attack-on-Reduced-SHA-256-upto-24-Rounds.svg?branch=master)](https://travis-ci.com/ChakshuGupta13/Local-Collision-Differential-Attack-on-Reduced-SHA-256-upto-24-Rounds)
 This repository contains the implementation of the local-collision differential 22-rounds attack (deterministic) & 24-rounds attack (probabilistic) on SHA-256 in C which are described in "New Collision Attacks against Up to 24-Step SHA-2".
 ## Project Build Procedure
 1. Clone the repository:
