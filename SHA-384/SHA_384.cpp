@@ -229,8 +229,6 @@ string SHA384(string msg)
         expand(W);
         compress(W, reg);
     }
-    reg.pop_back();
-    reg.pop_back();
     return getHashDigest(reg);
 }
 
